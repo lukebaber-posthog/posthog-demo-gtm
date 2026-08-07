@@ -1,7 +1,5 @@
 "use client";
 
-import { sendGTMEvent } from "@next/third-parties/google";
-
 import { Button } from "@/components/ui/button";
 
 export default function Home() {
