@@ -10,7 +10,7 @@ export default function Home() {
       <div className="flex gap-3">
         <Button
           size="lg"
-          onClick={() => sendGTMEvent({ event: "signup_clicked" })}
+          onClick={() => window.posthog?.capture("signup_clicked", { plan: "pro" })}
         >
           Sign up
         </Button>
@@ -18,7 +18,7 @@ export default function Home() {
         <Button
           size="lg"
           variant="outline"
-          onClick={() => sendGTMEvent({ event: "demo_requested" })}
+          onClick={() => window.posthog?.capture("demo_requested", { plan: "pro" })}
         >
           Request demo
         </Button>
