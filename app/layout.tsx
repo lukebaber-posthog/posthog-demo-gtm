@@ -26,6 +26,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        {/* Ketch smart tag: must be the first tag in <head>, before GTM. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `!function(){window.semaphore=window.semaphore||[],window.ketch=function(){window.semaphore.push(arguments)};var e=document.createElement("script");e.type="text/javascript",e.src="https://global.ketchcdn.com/web/v3/config/test_posthog/website_smart_tag/boot.js",e.defer=e.async=!0,document.getElementsByTagName("head")[0].appendChild(e)}();`,
+          }}
+        />
+      </head>
       <GoogleTagManager gtmId="GTM-PDTMB52T" />
       <body className="min-h-full flex flex-col">
         {children}
